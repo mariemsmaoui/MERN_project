@@ -1,37 +1,29 @@
-/* eslint-disable jsx-a11y/anchor-has-content */
-import data from "./data";
+
+import HomeScreen from "./Screens/HomeScreen";
+import ProductScreen from './Screens/ProductScreen'
+
+import { BrowserRouter as Router, Routes, Route, Link,} from "react-router-dom";
 
 function App() {
   return (
+
+    <Router>
+
     <div className="App">
       <header>
-        <a href="/">Amazona</a>
+        <Link to="/">Amazona</ Link>
       </header>
       <main>
-        <h1>Featured products</h1>
-        <div className="products">
-          {
-            data.products.map(product=>(
-              <div className="product"key ={product.slug}>
-                <a href={`/product/${product.slug}`}>
-                <img src={product.image} alt={product.image} />
-                </a>
-                <div className="product-info">
-                <a href={`/product/${product.slug}`}>
-
-                <p>{product.name} </p>
-                </a>
-                <p><strong>${product.price} </strong></p>
-                <button>Add to cart</button>
-                </div>
-              </div>
-            ))
-
-          }
-      </div>
-
+   
+          <Routes>
+          <Route path="/product/:slug" element={<ProductScreen />} />
+          <Route path="/" element={<HomeScreen />} />
+          </Routes>
+      
+        
       </main>
     </div>
+    </Router>
   );
 }
 
