@@ -24,11 +24,18 @@ header a {
 main{
 flex:1
 }
+.btn-primary{
+  background-color:#ffc000;
+  color:#404040
+}
 .products{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 
+}
+.rating span{
+  color: #ffc000;
 }
 .product{ 
   border:1px #404040 solid;
@@ -41,4 +48,7 @@ flex:1
 }
 .product-info{
   padding: 1rem;;
+}
+.img-large{
+  max-width: 100%;
 }

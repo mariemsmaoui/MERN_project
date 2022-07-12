@@ -18,7 +18,7 @@ const data = {
       category: "adidas",
       image: "/images/p2.jpg",
       price: 150,
-      countInstock: 20,
+      countInstock: 0,
       brand: "Adidas",
       rating: 2.0,
       numReviews: 10,
