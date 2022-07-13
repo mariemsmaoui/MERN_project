@@ -1,12 +1,13 @@
 import { useState, useEffect, useReducer } from "react";
-import data from "../data";
-import { Link } from "react-router-dom";
+
 import axios from "axios";
 import logger from "use-reducer-logger";
-import Row from'react-bootstrap/Row'
-import Col from'react-bootstrap/Col'
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import Product from "../Component/Product";
 import { Helmet } from "react-helmet-async";
+import MessageBox from "../Component/MessageBox";
+import LoadingBox from "../Component/LoadingBox";
 const reducer = (state, action) => {
   switch (action.type) {
     case "FETCH_REQUEST":
@@ -35,8 +36,7 @@ function HomeScreen() {
 
       try {
         const result = await axios.get("/api/products");
-       dispatch({ type: "FETCH_SUCCESS", payload: result.data });
-
+        dispatch({ type: "FETCH_SUCCESS", payload: result.data });
       } catch (err) {
         dispatch({ type: "FTECH_FAIL", payload: err.message });
       }
@@ -51,16 +51,19 @@ function HomeScreen() {
       </Helmet>
       <h1>Featured products</h1>
       <div className="products">
-         {loading ? <div>loading.. </div>
-         :error ?<div>{error}</div>
-         :
-         <Row>
-        {products.map((product) => (
-          <Col key={product.slug} sm={6} md ={4} lg={3} className="mb-3">
-          <Product  product={product}></Product>
-          </Col>
-        ))}
-        </Row>}
+        {loading ? (
+          <LoadingBox />
+        ) : error ? (
+          <MessageBox variant="danger">{error}</MessageBox>
+        ) : (
+          <Row>
+            {products.map((product) => (
+              <Col key={product.slug} sm={6} md={4} lg={3} className="mb-3">
+                <Product product={product}></Product>
+              </Col>
+            ))}
+          </Row>
+        )}
       </div>
     </div>
   );
