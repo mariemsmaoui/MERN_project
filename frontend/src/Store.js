@@ -1,30 +1,23 @@
-import { createContext, useReducer } from 'react';
+import { createContext,useReducer } from "react";
 
-export const Store = createContext();
-
-const initialState = {
-  cart: {
-    cartItems: [],
-  },
-};
-function reducer(state, action) {
-  switch (action.type) {
-    case 'CART_ADD_ITEM':
-      // add to cart
-      return {
-        ...state,
-        cart: {
-          ...state.cart,
-          cartItems: [...state.cart.cartItems, action.payload],
-        },
-      };
-    default:
-      return state;
-  }
+const intialState ={
+    cart : {
+        cartItems: [],
+    },
 }
-
-export function StoreProvider(props) {
-  const [state, dispatch] = useReducer(reducer, initialState);
-  const value = { state, dispatch };
-  return <Store.Provider value={value}>{props.children} </Store.Provider>;
+export const Store= createContext();
+function reducer(state,action){
+    switch(action.type){
+    case'CART_ADD_ITEM':
+    //add to cart
+    return{...state, cart :{...state.cart, cartItems:[...state.cart.cartItems]}}
+    default:
+        return state;
+    }
+}
+}
+export function Storeprovider(props){
+   const [state, dispatch] = useReducer(reducer, intialState);
+   const value ={state,dispatch}
+   return <Store.provider value ={value}>{props.children}</Store.provider>
 }
