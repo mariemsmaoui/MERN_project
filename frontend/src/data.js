@@ -1,7 +1,7 @@
 const data = {
   products: [
     {
-      _id:'1',
+      _id: "1",
       name: "nike slim shirt",
       slug: "nike-slim-shirt",
       category: "shirts",
@@ -13,7 +13,8 @@ const data = {
       numReviews: 10,
       description: "Hight Quality Product",
     },
-    {_id:'2',
+    {
+      _id: "2",
       name: "adida slim shirt",
       slug: "adidas-slim-shirt",
       category: "adidas",
@@ -25,7 +26,8 @@ const data = {
       numReviews: 10,
       description: "Hight Quality Product",
     },
-    {_id:'3',
+    {
+      _id: "3",
       name: "nike slim pants",
       slug: "nike-slim-pants",
       category: "pants",
@@ -37,19 +39,19 @@ const data = {
       numReviews: 60,
       description: "Hight Quality Product",
     },
-    {_id:'4',
-        name: "adidas slim pants",
-        slug: "adidas-slim-pants",
-        category: "pants",
-        image: "/images/p4.jpg",
-        price: 350,
-        countInstock: 50,
-        brand: "Adidas",
-        rating: 4.0,
-        numReviews: 70,
-        description: "Hight Quality Product",
-      },
-  
+    {
+      _id: "4",
+      name: "adidas slim pants",
+      slug: "adidas-slim-pants",
+      category: "pants",
+      image: "/images/p4.jpg",
+      price: 350,
+      countInstock: 50,
+      brand: "Adidas",
+      rating: 4.0,
+      numReviews: 70,
+      description: "Hight Quality Product",
+    },
   ],
 };
 
