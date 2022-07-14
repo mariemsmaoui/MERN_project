@@ -8,6 +8,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import { useContext } from "react";
 import { Store } from "./Store";
+import CartScreen from "./Screens/CartScreen";
 function App() {
   const {state, dispatch:ctxDispatch} = useContext(Store);
  const {cart}=state;
@@ -25,7 +26,7 @@ function App() {
                   Cart
                   {cart.cartItems.length > 0 && (
                     <Badge pill bg="danger">
-                      {cart.cartItems.length}
+                      {cart.cartItems.reduce((a,c)=>a+c.quantity ,0)}
                     </Badge>
                   )}
                 </Link>
@@ -38,6 +39,8 @@ function App() {
             <Routes>
               <Route path="/product/:slug" element={<ProductScreen />} />
               <Route path="/" element={<HomeScreen />} />
+              <Route path="/cart" element={<CartScreen />} />
+
             </Routes>
           </Container>
         </main>
