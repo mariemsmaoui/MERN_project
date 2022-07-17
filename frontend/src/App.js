@@ -10,17 +10,18 @@ import { useContext } from "react";
 import { Store } from "./Store";
 import CartScreen from "./Screens/CartScreen";
 import SigninScreen from "./Screens/SignInScreen";
+//routing
 function App() {
-  const {state, dispatch:ctxDispatch} = useContext(Store);
+  const {state} = useContext(Store);
  const {cart}=state;
   return (
     <Router>
       <div className="d-flex flex-column site-container">
         <header>
           <Navbar bg="dark" variant="dark">
-            <Container>
+            <Container >
               <LinkContainer to="/">
-                <Navbar.Brand>Amazona</Navbar.Brand>
+                <Navbar.Brand>Phone Shop</Navbar.Brand>
               </LinkContainer>
               <Nav className="me-auto">
               <Link to="/cart" className="nav-link">
@@ -36,7 +37,7 @@ function App() {
           </Navbar>{" "}
         </header>
         <main>
-          <Container>
+          <Container className="mt-3">
             <Routes>
             <Route path="/product/:slug" element={<ProductScreen />} />
               <Route path="/cart" element={<CartScreen />} />
@@ -47,7 +48,7 @@ function App() {
           </Container>
         </main>
         <footer>
-          <div className="text-center">all right resrved @20222</div>
+          <div className="text-center">all right resrved @2022</div>
         </footer>
       </div>
     </Router>

@@ -1,5 +1,4 @@
 import { useState, useEffect, useReducer } from "react";
-
 import axios from "axios";
 import logger from "use-reducer-logger";
 import Row from "react-bootstrap/Row";
@@ -8,11 +7,13 @@ import Product from "../Component/Product";
 import { Helmet } from "react-helmet-async";
 import MessageBox from "../Component/MessageBox";
 import LoadingBox from "../Component/LoadingBox";
+
+//mange complexe state
 const reducer = (state, action) => {
   switch (action.type) {
     case "FETCH_REQUEST":
       return { ...state, loading: true };
-    case "FETCH_SUCCESS":
+    case "FETCH_SUCCESS"://update product
       return { ...state, products: action.payload, loading: false };
     case "FETCH_FAIL":
       return { ...state, loading: false, error: action.payload };
@@ -22,13 +23,13 @@ const reducer = (state, action) => {
 };
 
 function HomeScreen() {
+  //define use reducer state
   const [{ loading, error, products }, dispatch] = useReducer(logger(reducer), {
     products: [],
     loading: true,
     error: "",
   });
 
-  // const [products,setProducts]= useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,14 +41,14 @@ function HomeScreen() {
       } catch (err) {
         dispatch({ type: "FTECH_FAIL", payload: err.message });
       }
-      // setProducts(result.data);
     };
     fetchData();
   }, []);
+
   return (
     <div>
       <Helmet>
-        <title>Amazona</title>
+        <title>Phone Shop</title>
       </Helmet>
       <h1>Featured products</h1>
       <div className="products">

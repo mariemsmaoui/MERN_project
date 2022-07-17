@@ -5,13 +5,12 @@ function Rating(props) {
   const { rating, numReviews } = props;
   return (
     <div className="rating">
-      <i className="fa fa-star" aria-hidden="true"></i>
 
       <span>
         <i
           className={
             rating >= 1
-              ? "fa fa-star"
+              ? 'fa fa-star'
               : rating >= 0.5
               ? "fas fa-star-half-alt"
               : "far fa-star"
@@ -21,33 +20,33 @@ function Rating(props) {
       <span>
         <i
           className={
-            rating >= 2
+            rating >= 1
               ? "fa fa-star"
               : rating >= 1.5
-              ? "fas fa-star-half-alt"
+              ? "fa fa-star-half-alt"
               : "far fa-star"
           }
        />
-          {" "}
+     
       
       </span>
       <span>
         <i
           className={
-            rating >= 3
+            rating >= 1
               ? "fa fa-star"
               : rating >= 2.5
               ? "fas fa-star-half-alt"
               : "far fa-star"
           }
         />
-          {" "}
+     
       
       </span>
       <span>
         <i
           className={
-            rating >= 4
+            rating >= 1
               ? "fa fa-star"
               : rating >= 3.5
               ? "fas fa-star-half-alt"
@@ -58,7 +57,7 @@ function Rating(props) {
       <span>
         <i
           className={
-            rating >= 5
+            rating >= 4
               ? "fa fa-star"
               : rating >= 4.5
               ? "fas fa-star-half-alt"
@@ -66,8 +65,8 @@ function Rating(props) {
           }
         />
       </span>
-      <span>
-        {numReviews}Reviews
+      <span className="review">
+        {numReviews}  Reviews
       </span>
     </div>
   );

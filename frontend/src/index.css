@@ -22,7 +22,7 @@ header a {
 
 }
 main{
-flex:1
+padding :3rem;
 }
 .btn-primary{
   background-color:#ffc000;
@@ -32,14 +32,15 @@ flex:1
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-
 }
 .rating span{
-  color: #ffc000;
+  color: #ffbf00e7;
+ 
 }
+
 .product{ 
   border:1px #404040 solid;
-  margin:1rem ;
+  margin:2rem ;
 }
 .product img{
   width: 100%;
