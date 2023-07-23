@@ -14,6 +14,7 @@ import LoadingBox from "../Component/LoadingBox";
 import MessageBox from "../Component/MessageBox";
 import { getError } from "../Util";
 import { Store } from "../Store";
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "FETCH_REQUEST":
@@ -29,7 +30,8 @@ const reducer = (state, action) => {
 
 function ProductScreen() {
   const navigate = useNavigate();
-  const params = useParams();
+  const params = useParams();//allows dynamic routing
+  //get slug 
   const { slug } = params;
 
   const [{ loading, error, product }, dispatch] = useReducer(reducer, {
@@ -110,7 +112,7 @@ function ProductScreen() {
           </ListGroup>
         </Col>
         <Col md={3}>
-          <Card>
+          <Card >
             <Card.Body>
               <ListGroup variant="flush">
                 <ListGroup.Item>

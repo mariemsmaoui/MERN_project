@@ -1,11 +1,28 @@
+import bcrypt from "bcryptjs";
 const data = {
-  products: [
+
+  users: [
     {
-      _id: "1",
+      name: "admin",
+      email: "admin@gmail.com",
+      password: bcrypt.hashSync("123456"),
+      isAdmin: true,
+    },
+    {
+      name: "mariem",
+      email: "mariem@gmail.com",
+      password: bcrypt.hashSync("147258"),
+      isAdmin: false,
+    },
+  ],
+
+  products: [
+   /* {
+      // _id: "1",
       name: "Sumsung-Galaxy-s22",
       slug: "Sumsung-Galaxy-s22",
       category: "phones",
-      image: "/images/p1.jpg",//800 px
+      image: "/images/p1.jpg", //800 px
       price: 799.99,
       countInstock: 20,
       brand: "Sumsung",
@@ -14,20 +31,20 @@ const data = {
       description: "Hight Quality Product",
     },
     {
-      _id: "2",
+      // _id: "2",
       name: "iphone 13",
       slug: "iphone 13",
       category: "phones",
       image: "/images/p2.jpg",
-      price:899,
+      price: 899,
       countInstock: 0,
       brand: "apple",
       rating: 4.0,
       numReviews: 60,
       description: "Hight Quality Product",
-    },
+    },*/
     {
-      _id: "3",
+      // _id: "3",
       name: "iphone 12",
       slug: "iphone 12",
       category: "phones",
@@ -40,7 +57,7 @@ const data = {
       description: "Hight Quality Product",
     },
     {
-      _id: "4",
+      //_id: "4",
       name: "oppo reno 6",
       slug: "oppo reno 6",
       category: "phones",
@@ -53,6 +70,7 @@ const data = {
       description: "Hight Quality Product",
     },
   ],
+ 
 };
 
 export default data;

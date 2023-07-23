@@ -59,3 +59,12 @@ padding :3rem;
 .small-container {
   max-width: 600px;
 }
+/* styles.css (or any other CSS file you are using) */
+.product-card {
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.05); /* Adjust the scale factor to control the hover effect */
+  cursor: pointer;
+}

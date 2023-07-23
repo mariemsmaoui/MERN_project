@@ -10,6 +10,8 @@ import { useContext } from "react";
 import { Store } from "./Store";
 import CartScreen from "./Screens/CartScreen";
 import SigninScreen from "./Screens/SignInScreen";
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 //routing
 function App() {
   const {state} = useContext(Store);
