@@ -1,9 +1,9 @@
-import express  from "express";
+import express from "express";
 import User from "../models/UserModel.js";
 
 import bcrypt from "bcryptjs";
 import { generateToken } from "../utils.js";
-import expressAsyncHandler from 'express-async-handler'
+import expressAsyncHandler from "express-async-handler";
 const userRouter = express.Router();
 
 userRouter.post(
@@ -13,12 +13,11 @@ userRouter.post(
     if (user) {
       if (bcrypt.compareSync(req.body.password, user.password)) {
         res.send({
-            _id:user._id,
-            name:user.name,
-            email:user.email,
-            isAdmin:user.isAdmin,
-            token:generateToken(user)
-
+          _id: user._id,
+          name: user.name,
+          email: user.email,
+          isAdmin: user.isAdmin,
+          token: generateToken(user),
         });
         return;
       }
