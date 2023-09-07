@@ -2,6 +2,5 @@
 
 steps:
 
-## to launch the frontend npm start
-
-## to launch the backendend npm start & update the mongodb ip address
+to launch the frontend npm start
+to launch the backendend npm start & update the mongodb ip address
