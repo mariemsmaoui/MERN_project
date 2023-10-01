@@ -7,6 +7,7 @@ import Product from "../Component/Product";
 import { Helmet } from "react-helmet-async";
 import MessageBox from "../Component/MessageBox";
 import LoadingBox from "../Component/LoadingBox";
+import React , { Component}  from 'react';
 
 //mange complexe state
 const reducer = (state, action) => {

@@ -4,8 +4,13 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Helmet } from "react-helmet-async";
 import Axios from "axios";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Store } from "../Store";
+import React , { Component}  from 'react';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { getError } from "../Util";
 
 export default function SigninScreen() {
   const navigate = useNavigate();
@@ -14,8 +19,8 @@ export default function SigninScreen() {
   const redirect = redirectInUrl ? redirectInUrl : "/";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const { state, dispatch: ctxDispatch } = useContext(Store);
+  
   const SubmitHandler = async (e) => {
     //even refresh 
     e.preventDefault();
@@ -30,9 +35,14 @@ export default function SigninScreen() {
       //redirect user 
       navigate(redirect || "/");
     } catch (err) {
-      alert(`Something went wrong Invalid email or password! ${err}`);
+     // alert(`Something went wrong Invalid email or password! ${err}`);
+    toast(getError(err));
+
     }
   };
+
+
+
   return (
     <Container className="small-container">
       <Helmet>

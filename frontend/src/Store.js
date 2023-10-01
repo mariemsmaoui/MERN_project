@@ -1,4 +1,6 @@
 import { createContext,useReducer } from "react";
+import React , { Component}  from 'react';
+
 export const Store = createContext();
 
 const initialState = {
